@@ -34,7 +34,7 @@ int main(int argc, char** argv)
 		       "  -b <BANDWIDTH_CALIBRATING> (default: 5e6)\n"
 		       "  -s <SAMPLE_RATE> (default: 2e6)\n"
 		       "  -g <GAIN_NORMALIZED> (default: 1)\n"
-                       "  -l <BUFFER_SIZE> (default: 10%% of the sample rate)\n"
+                       "  -l <BUFFER_SIZE>  (default: 1024*1024)\n"
 		       "  -d <DEVICE_INDEX> (default: 0)\n"
 		       "  -c <CHANNEL_INDEX> (default: 0)\n"
 		       "  -t <CHUNK_TIMEOUT_SEC> (default: 1)\n"
@@ -43,12 +43,11 @@ int main(int argc, char** argv)
 		return 1;
 	}
 	int i;
-	int buffer_size_setted = 0;
 	unsigned int freq = 0;
 	double bandwidth_calibrating = 5e6;
 	double sample_rate = 2e6;
 	double gain = 1;
-	unsigned int buffer_size = 0;
+	unsigned int buffer_size = 1024*1024;
 	unsigned int device_i = 0;
 	unsigned int channel = 0;
 	char* antenna = "LNAW";
@@ -58,7 +57,7 @@ int main(int argc, char** argv)
 		else if (strcmp(argv[i], "-b") == 0) { bandwidth_calibrating = atof( argv[i+1] ); }
 		else if (strcmp(argv[i], "-s") == 0) { sample_rate = atof( argv[i+1] ); }
 		else if (strcmp(argv[i], "-g") == 0) { gain = atof( argv[i+1] ); }
-		else if (strcmp(argv[i], "-l") == 0) { buffer_size = atoi( argv[i+1] ); buffer_size_setted = 1; }
+		else if (strcmp(argv[i], "-l") == 0) { buffer_size = atoi( argv[i+1] ); }
 		else if (strcmp(argv[i], "-d") == 0) { device_i = atoi( argv[i+1] ); }
 		else if (strcmp(argv[i], "-c") == 0) { channel = atoi( argv[i+1] ); }
 		else if (strcmp(argv[i], "-a") == 0) { antenna = argv[i+1]; }
@@ -67,9 +66,6 @@ int main(int argc, char** argv)
 	if ( freq == 0 ) {
 		fprintf( stderr, "ERROR: invalid frequency : %d\n", freq );
 		return 1;
-	}
-	if ( buffer_size_setted == 0 ) {
-		buffer_size = sample_rate / 10;
 	}
 	struct s16iq_sample_s {
 	        short i;

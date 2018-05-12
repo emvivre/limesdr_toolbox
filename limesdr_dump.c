@@ -37,7 +37,6 @@ int main(int argc, char** argv)
                        "  -l <BUFFER_SIZE>  (default: 1024*1024)\n"
 		       "  -d <DEVICE_INDEX> (default: 0)\n"
 		       "  -c <CHANNEL_INDEX> (default: 0)\n"
-		       "  -t <CHUNK_TIMEOUT_SEC> (default: 1)\n"
 		       "  -a <ANTENNA> (LNAL | LNAH | LNAW) (default: LNAW)\n"
 		       "  -o <OUTPUT_FILENAME> (default: stdout)\n");
 		return 1;

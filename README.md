@@ -5,12 +5,12 @@ The toolbox contains the following tools:
  - limesdr_dump : dump I/Q signals on arbitrary frequencies
  - limesdr_replay : replay dumped I/Q signals
  - limesdr_forward : forward input I/Q signals of a RX channel (inputs frequencies) to a TX channel (output frequencies).
- - limesdr_stopchannel : stop all RX/TX channels (debug purpose) 
- 
+ - limesdr_stopchannel : stop all RX/TX channels (debug purpose)
+
 # limesdr_dump
 limesdr_dump allows to dump I/Q signals on arbitrary frequencies with 16-bits resolution (highest precision of the hardware).
 ```
-$ ./limesdr_dump 
+$ ./limesdr_dump
 Usage: ./limesdr_dump <OPTIONS>
   -f <FREQUENCY>
   -b <BANDWIDTH_CALIBRATING> (default: 5e6)
@@ -49,12 +49,12 @@ Usage: ./limesdr_replay <OPTIONS>
   -i <INPUT_FILENAME> (default: stdin)
 ```
 
-E.g. replay of previous caputured I/Q signals 
+E.g. replay of previous caputured I/Q signals
 ```
 $ ./limesdr_replay -f 100.1e6 -i out.dat
 ```
 
-Because we are handling I/Q signals, we can output I/Q signals on frequencies different than input frequencies
+Because we are handling I/Q signals from Intermediate Frequencies (IF), we can output I/Q signals on frequencies different than input frequencies
 ```
 $ ./limesdr_dump -f 100.1e6 -o out.dat
 $ ./limesdr_replay -f 234.5e6 -i out.dat
@@ -79,7 +79,7 @@ Usage: ./limesdr_forward <OPTIONS>
   -A <OUTPUT_ANTENNA> (BAND1 | BAND2) (default: BAND1)
 ```
 
-E.g. forwarding of a radio station 
+E.g. forwarding of a radio station
 ```
 $ ./limesdr_forward -f 100.1e6 -F 234.5e6
 ```
@@ -87,5 +87,5 @@ $ ./limesdr_forward -f 100.1e6 -F 234.5e6
 # limesdr_stopchannel
 limesdr_stopchannel allows to stop all channels on RX/TX.
 ```
-$ ./limesdr_stopchannel 
+$ ./limesdr_stopchannel
 ```

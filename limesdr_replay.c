@@ -56,7 +56,7 @@ int main(int argc, char** argv)
 		if      (strcmp(argv[i], "-f") == 0) { freq = atof( argv[i+1] ); }
 		else if (strcmp(argv[i], "-b") == 0) { bandwidth_calibrating = atof( argv[i+1] ); }
 		else if (strcmp(argv[i], "-s") == 0) { sample_rate = atof( argv[i+1] ); }
-		else if (strcmp(argv[i], "-g") == 0) { gain = atoi( argv[i+1] ); }
+		else if (strcmp(argv[i], "-g") == 0) { gain = atof( argv[i+1] ); }
 		else if (strcmp(argv[i], "-l") == 0) { buffer_size = atoi( argv[i+1] ); }
 		else if (strcmp(argv[i], "-d") == 0) { device_i = atoi( argv[i+1] ); }
 		else if (strcmp(argv[i], "-c") == 0) { channel = atoi( argv[i+1] ); }

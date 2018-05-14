@@ -34,10 +34,6 @@ int limesdr_set_channel( const unsigned int freq,
 			 lms_device_t* device )
 
 {
-	if ( LMS_SetNormalizedGain( device, is_tx, channel, gain ) < 0 ) {
-		fprintf(stderr, "LMS_SetNormalizedGain() : %s\n", LMS_GetLastErrorMessage());
-		return -1;
-	}
 	int nb_antenna = LMS_GetAntennaList(device, is_tx, channel, NULL);
 	lms_name_t list[ nb_antenna ];
 	LMS_GetAntennaList( device, is_tx, channel, list );
@@ -56,13 +52,19 @@ int limesdr_set_channel( const unsigned int freq,
 		fprintf( stderr, "ERROR: unable to found antenna : %s\n", antenna );
 		return -1;
 	}
+	if ( LMS_Calibrate( device, is_tx, channel, bandwidth_calibrating, 0 ) < 0 ) {
+		fprintf(stderr, "LMS_Calibrate() : %s\n", LMS_GetLastErrorMessage());
+		return -1;
+	}
 	if ( LMS_SetLOFrequency( device, is_tx, channel, freq ) < 0 ) {
 		fprintf(stderr, "LMS_SetLOFrequency() : %s\n", LMS_GetLastErrorMessage());
 		return -1;
 	}
-	if ( LMS_Calibrate( device, is_tx, channel, bandwidth_calibrating, 0 ) < 0 ) {
-		fprintf(stderr, "LMS_Calibrate() : %s\n", LMS_GetLastErrorMessage());
-		return -1;
+	if ( gain >= 0 ) {
+		if ( LMS_SetNormalizedGain( device, is_tx, channel, gain ) < 0 ) {
+			fprintf(stderr, "LMS_SetNormalizedGain() : %s\n", LMS_GetLastErrorMessage());
+			return -1;
+		}
 	}
 	return 0;
 }

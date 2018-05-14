@@ -35,8 +35,8 @@ int main(int argc, char** argv)
 		       "  -F <OUTPUT_FREQUENCY>\n"
 		       "  -b <BANDWIDTH_CALIBRATING> (default: 5e6)\n"
 		       "  -s <SAMPLE_RATE> (default: 2e6)\n"
-		       "  -g <INPUT_GAIN_NORMALIZED> (default: 1)\n"
-		       "  -g <OUTPUT_GAIN_NORMALIZED> (default: 1)\n"
+		       "  -g <INPUT_GAIN_NORMALIZED> (default: unused)\n"
+		       "  -G <OUTPUT_GAIN_NORMALIZED> (default: 1)\n"
                        "  -l <BUFFER_SIZE> (default: 1024*1024)\n"
 		       "  -d <DEVICE_INDEX> (default: 0)\n"
 		       "  -c <INPUT_CHANNEL_INDEX> (default: 0)\n"
@@ -50,8 +50,8 @@ int main(int argc, char** argv)
 	unsigned int freq_output = 0;
 	double bandwidth_calibrating = 5e6;
 	double sample_rate = 2e6;
-	double gain_input = 1;
-	double gain_output = 0.6;
+	double gain_input = -1;
+	double gain_output = 1;
 	unsigned int buffer_size = 1024*1024;
 	unsigned int device_i = 0;
 	unsigned int channel_input = 0;
@@ -63,8 +63,8 @@ int main(int argc, char** argv)
 		else if (strcmp(argv[i], "-F") == 0) { freq_output = atof( argv[i+1] ); }
 		else if (strcmp(argv[i], "-b") == 0) { bandwidth_calibrating = atof( argv[i+1] ); }
 		else if (strcmp(argv[i], "-s") == 0) { sample_rate = atof( argv[i+1] ); }
-		else if (strcmp(argv[i], "-g") == 0) { gain_input = atoi( argv[i+1] ); }
-		else if (strcmp(argv[i], "-G") == 0) { gain_output = atoi( argv[i+1] ); }
+		else if (strcmp(argv[i], "-g") == 0) { gain_input = atof( argv[i+1] ); }
+		else if (strcmp(argv[i], "-G") == 0) { gain_output = atof( argv[i+1] ); }
 		else if (strcmp(argv[i], "-l") == 0) { buffer_size = atoi( argv[i+1] ); }
 		else if (strcmp(argv[i], "-d") == 0) { device_i = atoi( argv[i+1] ); }
 		else if (strcmp(argv[i], "-c") == 0) { channel_input = atoi( argv[i+1] ); }

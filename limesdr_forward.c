@@ -48,7 +48,7 @@ int main(int argc, char** argv)
 	int i;
 	unsigned int freq_input = 0;
 	unsigned int freq_output = 0;
-	double bandwidth_calibrating = 5e6;
+	double bandwidth_calibrating = 200e3;
 	double sample_rate = 2e6;
 	double gain_input = -1;
 	double gain_output = 1;

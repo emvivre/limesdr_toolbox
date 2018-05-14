@@ -43,7 +43,7 @@ int main(int argc, char** argv)
 	}
 	int i;
 	unsigned int freq = 0;
-	double bandwidth_calibrating = 5e6;
+	double bandwidth_calibrating = 200e3;
 	double sample_rate = 2e6;
 	double gain = 1;
 	unsigned int buffer_size = 1024*1024;

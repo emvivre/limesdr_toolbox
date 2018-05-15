@@ -31,7 +31,7 @@ int main(int argc, char** argv)
 	if ( argc < 2 ) {
 		printf("Usage: %s <OPTIONS>\n", argv[0]);
 		printf("  -f <FREQUENCY>\n"
-		       "  -b <BANDWIDTH_CALIBRATING> (default: 5e6)\n"
+		       "  -b <BANDWIDTH_CALIBRATING> (default: 200e3)\n"
 		       "  -s <SAMPLE_RATE> (default: 2e6)\n"
 		       "  -g <GAIN_NORMALIZED> (default: 1)\n"
                        "  -l <BUFFER_SIZE>  (default: 1024*1024)\n"

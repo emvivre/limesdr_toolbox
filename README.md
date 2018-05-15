@@ -13,13 +13,12 @@ limesdr_dump allows to dump I/Q signals on arbitrary frequencies with 16-bits re
 $ ./limesdr_dump
 Usage: ./limesdr_dump <OPTIONS>
   -f <FREQUENCY>
-  -b <BANDWIDTH_CALIBRATING> (default: 5e6)
+  -b <BANDWIDTH_CALIBRATING> (default: 200e3)
   -s <SAMPLE_RATE> (default: 2e6)
   -g <GAIN_NORMALIZED> (default: 1)
-  -l <BUFFER_SIZE> (default: 10% of the sample rate)
+  -l <BUFFER_SIZE>  (default: 1024*1024)
   -d <DEVICE_INDEX> (default: 0)
   -c <CHANNEL_INDEX> (default: 0)
-  -t <CHUNK_TIMEOUT_SEC> (default: 1)
   -a <ANTENNA> (LNAL | LNAH | LNAW) (default: LNAW)
   -o <OUTPUT_FILENAME> (default: stdout)
 ```
@@ -39,7 +38,7 @@ limesdr_replay allows to replay previous dumped I/Q signals.
 $ ./limesdr_replay
 Usage: ./limesdr_replay <OPTIONS>
   -f <FREQUENCY>
-  -b <BANDWIDTH_CALIBRATING> (default: 5e6)
+  -b <BANDWIDTH_CALIBRATING> (default: 200e3)
   -s <SAMPLE_RATE> (default: 2e6)
   -g <GAIN_NORMALIZED> (default: 1)
   -l <BUFFER_SIZE> (default: 1024*1024)
@@ -67,10 +66,10 @@ $ ./limesdr_forward
 Usage: ./limesdr_forward <OPTIONS>
   -f <INPUT_FREQUENCY>
   -F <OUTPUT_FREQUENCY>
-  -b <BANDWIDTH_CALIBRATING> (default: 5e6)
+  -b <BANDWIDTH_CALIBRATING> (default: 200e3)
   -s <SAMPLE_RATE> (default: 2e6)
-  -g <INPUT_GAIN_NORMALIZED> (default: 1)
-  -g <OUTPUT_GAIN_NORMALIZED> (default: 1)
+  -g <INPUT_GAIN_NORMALIZED> (default: unused)
+  -G <OUTPUT_GAIN_NORMALIZED> (default: 1)
   -l <BUFFER_SIZE> (default: 1024*1024)
   -d <DEVICE_INDEX> (default: 0)
   -c <INPUT_CHANNEL_INDEX> (default: 0)

@@ -33,7 +33,7 @@ int main(int argc, char** argv)
 		printf("Usage: %s <OPTIONS>\n", argv[0]);
 		printf("  -f <INPUT_FREQUENCY>\n"
 		       "  -F <OUTPUT_FREQUENCY>\n"
-		       "  -b <BANDWIDTH_CALIBRATING> (default: 5e6)\n"
+		       "  -b <BANDWIDTH_CALIBRATING> (default: 200e3)\n"
 		       "  -s <SAMPLE_RATE> (default: 2e6)\n"
 		       "  -g <INPUT_GAIN_NORMALIZED> (default: unused)\n"
 		       "  -G <OUTPUT_GAIN_NORMALIZED> (default: 1)\n"

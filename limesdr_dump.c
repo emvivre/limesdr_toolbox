@@ -82,6 +82,8 @@ int main(int argc, char** argv)
 			perror("fopen()");
 			return 1;
 		}
+	} else {
+		stdout = stderr;
 	}
 	lms_device_t* device = NULL;
 	double host_sample_rate = 10.0;

@@ -3,7 +3,7 @@ The limesdr_toolbox is a set of the tools to play with the LimeSDR / LimeSDR-Min
 
 The toolbox contains the following tools:
  - limesdr_dump : dump I/Q signals on arbitrary frequencies
- - limesdr_replay : replay dumped I/Q signals
+ - limesdr_send : send generated or dumped I/Q signals
  - limesdr_forward : forward input I/Q signals of a RX channel (inputs frequencies) to a TX channel (output frequencies).
  - limesdr_stopchannel : stop all RX/TX channels (debug purpose)
 
@@ -32,11 +32,11 @@ $ ./limesdr_dump -f 100.1e6 -o out.dat
 The output capture file contains a set of 16-bits I/Q signals.
 
 
-# limesdr_replay
-limesdr_replay allows to replay previous dumped I/Q signals.
+# limesdr_send
+limesdr_send allows to send any I/Q signals.
 ```
-$ ./limesdr_replay
-Usage: ./limesdr_replay <OPTIONS>
+$ ./limesdr_send
+Usage: ./limesdr_send <OPTIONS>
   -f <FREQUENCY>
   -b <BANDWIDTH_CALIBRATING> (default: 200e3)
   -s <SAMPLE_RATE> (default: 2e6)
@@ -48,15 +48,15 @@ Usage: ./limesdr_replay <OPTIONS>
   -i <INPUT_FILENAME> (default: stdin)
 ```
 
-E.g. replay of previous caputured I/Q signals
+E.g. send of previous caputured I/Q signals
 ```
-$ ./limesdr_replay -f 100.1e6 -i out.dat
+$ ./limesdr_send -f 100.1e6 -i out.dat
 ```
 
 Because we are handling I/Q signals from Intermediate Frequencies (IF), we can output I/Q signals on frequencies different than input frequencies
 ```
 $ ./limesdr_dump -f 100.1e6 -o out.dat
-$ ./limesdr_replay -f 234.5e6 -i out.dat
+$ ./limesdr_send -f 234.5e6 -i out.dat
 ```
 
 # limesdr_forward

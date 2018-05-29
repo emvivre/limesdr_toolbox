@@ -47,7 +47,8 @@ int main(int argc, char** argv)
 	double bandwidth_calibrating = 200e3;
 	double sample_rate = 2e6;
 	double gain = 1;
-	unsigned int buffer_size = 1024*1024;
+	// unsigned int buffer_size = 1024*1024;
+	unsigned int buffer_size = 1024*10;
 	unsigned int device_i = 0;
 	unsigned int channel = 0;
 	char* antenna = "BAND1";
@@ -129,12 +130,8 @@ int main(int argc, char** argv)
 	}
 	LMS_StartStream(&rx_stream);
 
-	lms_stream_meta_t rx_meta;
-	rx_meta.waitForTimestamp = false;
-	rx_meta.flushPartialPacket = false;
+	tx_meta.timestamp = 0;
 	while( 1 ) {
-		LMS_RecvStream( &rx_stream, buff, buffer_size, &rx_meta, 1000 );
-		tx_meta.timestamp = rx_meta.timestamp + buffer_size;
 		int nb_samples_to_send = fread( buff, sizeof( *buff ), buffer_size, fd );
 		if ( nb_samples_to_send == 0 ) { // no more samples to send, quit
 			break;
@@ -144,6 +141,7 @@ int main(int argc, char** argv)
 			fprintf(stderr, "LMS_SendStream() : %s\n", LMS_GetLastErrorMessage());
 			break;
 		}
+		tx_meta.timestamp += nb_samples;
 	}
 	LMS_StopStream(&tx_stream);
 	LMS_DestroyStream(device, &tx_stream);

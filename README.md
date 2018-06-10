@@ -4,7 +4,7 @@ The limesdr_toolbox is a set of the tools to play with the LimeSDR / LimeSDR-Min
 The toolbox contains the following tools:
  - limesdr_dump : dump I/Q signals on arbitrary frequencies
  - limesdr_send : send generated or dumped I/Q signals
- - limesdr_forward : forward input I/Q signals of a RX channel (inputs frequencies) to a TX channel (output frequencies).
+ - limesdr_forward : relay of both digital or analog signals : forward input I/Q signals of a RX channel (inputs frequencies) to a TX channel (output frequencies).
  - limesdr_stopchannel : stop all RX/TX channels (debug purpose)
 
 # limesdr_dump
@@ -60,7 +60,7 @@ $ ./limesdr_send -f 234.5e6 -i out.dat
 ```
 
 # limesdr_forward
-limesdr_forward allows to forward I/Q signals captured around input frequencies on others frequencies on a real time. This is like a kind of streaming but on arbitrary radio frequencies.
+limesdr_forward allows to forward I/Q signals captured around input frequencies on others frequencies on a real time. This is like a kind of streaming but on arbitrary radio frequencies, and can be use as a relay of both digital or analog signals.
 ```
 $ ./limesdr_forward
 Usage: ./limesdr_forward <OPTIONS>

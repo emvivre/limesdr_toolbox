@@ -36,12 +36,13 @@ The output capture file contains a set of 16-bits I/Q signals.
 limesdr_send allows to send any I/Q signals.
 ```
 $ ./limesdr_send
-Usage: ./limesdr_send <OPTIONS>
+Usage: limesdr_send <OPTIONS>
   -f <FREQUENCY>
   -b <BANDWIDTH_CALIBRATING> (default: 200e3)
   -s <SAMPLE_RATE> (default: 2e6)
   -g <GAIN_NORMALIZED> (default: 1)
   -l <BUFFER_SIZE> (default: 1024*1024)
+  -p <POSTPONE_EMITTING_SEC> (default: 3)
   -d <DEVICE_INDEX> (default: 0)
   -c <CHANNEL_INDEX> (default: 0)
   -a <ANTENNA> (BAND1 | BAND2) (default: BAND1)

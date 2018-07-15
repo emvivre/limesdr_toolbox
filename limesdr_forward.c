@@ -33,7 +33,7 @@ int main(int argc, char** argv)
 		printf("Usage: %s <OPTIONS>\n", argv[0]);
 		printf("  -f <INPUT_FREQUENCY>\n"
 		       "  -F <OUTPUT_FREQUENCY>\n"
-		       "  -b <BANDWIDTH_CALIBRATING> (default: 200e3)\n"
+		       "  -b <BANDWIDTH_CALIBRATING> (default: 8e6)\n"
 		       "  -s <SAMPLE_RATE> (default: 2e6)\n"
 		       "  -g <INPUT_GAIN_NORMALIZED> (default: unused)\n"
 		       "  -G <OUTPUT_GAIN_NORMALIZED> (default: 1)\n"
@@ -48,7 +48,7 @@ int main(int argc, char** argv)
 	int i;
 	unsigned int freq_input = 0;
 	unsigned int freq_output = 0;
-	double bandwidth_calibrating = 200e3;
+	double bandwidth_calibrating = 8e6;
 	double sample_rate = 2e6;
 	double gain_input = -1;
 	double gain_output = 1;

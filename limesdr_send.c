@@ -32,7 +32,7 @@ int main(int argc, char** argv)
 	if ( argc < 2 ) {
 		printf("Usage: %s <OPTIONS>\n", argv[0]);
 		printf("  -f <FREQUENCY>\n"
-		       "  -b <BANDWIDTH_CALIBRATING> (default: 200e3)\n"
+		       "  -b <BANDWIDTH_CALIBRATING> (default: 8e6)\n"
 		       "  -s <SAMPLE_RATE> (default: 2e6)\n"
 		       "  -g <GAIN_NORMALIZED> (default: 1)\n"
                        "  -l <BUFFER_SIZE> (default: 1024*1024)\n"
@@ -45,7 +45,7 @@ int main(int argc, char** argv)
 	}
 	int i;
 	unsigned int freq = 0;
-	double bandwidth_calibrating = 200e3;
+	double bandwidth_calibrating = 8e6;
 	double sample_rate = 2e6;
 	double gain = 1;
 	unsigned int buffer_size = 1024*10;

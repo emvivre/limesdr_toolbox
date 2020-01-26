@@ -108,14 +108,6 @@ int limesdr_init( const double sample_rate,
 		fprintf(stderr, "LMS_EnableChannel() : %s\n", LMS_GetLastErrorMessage());
 		return -1;
 	}
-	if ( LMS_EnableChannel(*device, is_not_tx, 1-channel, false) < 0 ) {
-		fprintf(stderr, "LMS_EnableChannel() : %s\n", LMS_GetLastErrorMessage());
-		return -1;
-	}
-	if ( LMS_EnableChannel(*device, is_tx,   1-channel, false) < 0 ) {
-		fprintf(stderr, "LMS_EnableChannel() : %s\n", LMS_GetLastErrorMessage());
-		return -1;
-	}
 	if ( LMS_EnableChannel(*device, is_tx,   channel,   true) < 0 ) {
 		fprintf(stderr, "LMS_EnableChannel() : %s\n", LMS_GetLastErrorMessage());
 		return -1;

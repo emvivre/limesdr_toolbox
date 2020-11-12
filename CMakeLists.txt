@@ -11,7 +11,6 @@ set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake/Modules)
 
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_COMPILER_IS_CLANGXX)
     add_definitions(-Wall)
-    add_definitions(-Werror)
     add_definitions(-g)
     add_definitions(-O2)
 endif()
@@ -55,3 +54,9 @@ target_link_libraries( limesdr_forward
     LINK_PUBLIC
     ${LIB_LIMESUITE_LIBRARIES}
 )
+
+install(TARGETS limesdr_dump RUNTIME)
+install(TARGETS limesdr_send RUNTIME)
+install(TARGETS limesdr_stopchannel RUNTIME)
+install(TARGETS limesdr_forward RUNTIME)
+
